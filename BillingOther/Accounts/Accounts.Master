@@ -1,0 +1,131 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Accounts.master.cs" Inherits="BillingOther.Accounts.Accounts" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Infinity IPS</title>
+    <link rel="stylesheet" type="text/css" id="theme" href="../css/theme-blue.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+    <div class="page-container page-navigation-top">
+        <div class="page-content">
+
+            <ul class="x-navigation x-navigation-horizontal">
+                <li class="xn-logo" style="background-color:#fff!important; padding-right:30px;">
+                    <img src="../Images/logo.png" alt="Infinity IPS" width="180" height="64" />
+                    <a href="#" class="x-navigation-control"></a>
+                </li>
+                <li class="xn-openable">
+                    <a href="Dashboard.aspx"><span class="fa fa-files-o"></span><span class="xn-text">Dashboard</span></a>
+                </li>
+                <li class="xn-openable">
+                    <a href="#"><span class="fa fa-file-text-o"></span><span class="xn-text">Masters</span><span class="fa fa-caret-down"></span></a>
+                    <ul class="animated zoomIn">
+                        <li><a href="ProjectDetailsMaster.aspx"><span class="fa fa-envelope"></span>Client Billing Template</a></li>
+                        <li><a href="ClientEmailConfiguration.aspx"><span class="fa fa-cogs"></span>Client Email Configuration</a></li>
+                        <li><a href="VerifyCostMaster.aspx"><span class="fa fa-rupee"></span>Verify Price</a></li>
+                        <li><a href="ProjectGroupMaster.aspx"><span class="fa fa-group"></span>Project Group</a></li>
+                        <li><a href="ProductMaster.aspx"><span class="fa fa-puzzle-piece"></span>Product Master</a></li>
+                        <li><a href="ProductMapping.aspx"><span class="fa fa-map-marker"></span>Product Mapping</a></li>
+                        <li><a href="WholeLoanBilling.aspx"><span class="fa fa-map-marker"></span>Import Whole Loan Billig</a></li>
+                    </ul>
+                </li>
+                <li class="xn-openable">
+                    <a href="#"><span class="fa fa-cogs"></span><span class="xn-text">Billing</span><span class="fa fa-caret-down"></span></a>
+                    <ul class="animated zoomIn">
+                        <li><a href="SendAccountDetails.aspx"><span class="fa fa-adjust"></span>Yet To Be Billed</a></li>
+                        <li><a href="SendToClient.aspx"><span class="fa fa-eraser"></span>Sent to Client</a></li>
+                        <li><a href="SummaryReport.aspx"><span class="fa fa-square-o"></span>Sent To Client - Summary</a></li>
+                    </ul>
+                </li>
+                <li class="xn-openable">
+                    <a href="#"><span class="fa fa-pencil"></span><span class="xn-text">Reports</span><span class="fa fa-caret-down"></span></a>
+                    <ul class="animated zoomIn">
+
+                        <li><a href="MasterReport.aspx"><span class="fa fa-file-text-o"></span>All Domain Master Report</a></li>
+                        <li><a href="ProjectwisePriceMaster.aspx"><span class="fa fa-list-alt"></span>Project wise Price Details</a></li>
+                        <li><a href="AllProjectBillingReport.aspx"><span class="fa fa-arrow-right"></span>All Project Billing Details</a></li>
+                        <li><a href="CostPerRecord.aspx"><span class="fa fa-square-o"></span>Cost Per Record Report</a></li>
+                        <li><a href="DeviationReport.aspx"><spanv class="fa fa-file-text-o"></spanv>Deviation Report</a></li>
+                        <li><a href="ProjectSummaryReport.aspx"><spanv class="fa fa-file-text-o"></spanv>Project Summary Report</a></li>
+                        <li><a href="RateRevisionUpdates.aspx"><spanv class="fa fa-file-text-o"></spanv>Rate Revision History</a></li>
+                    </ul>
+                </li>
+                <!-- SIGN OUT -->
+                <li class="xn-icon-button pull-right">
+                    <a style="width:200px;"><span id="spnUsername" runat="server"></span></a>
+                    <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>
+                </li>
+                <!-- END SIGN OUT -->
+            </ul>
+
+            <ul class="breadcrumb">
+                <li><a href="Dashboard.aspx">Home</a></li>
+                <li class="active" id="lblHeader" runat="server">Dashboard</li>
+            </ul>
+
+            <div class="page-content-wrap">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <form id="form1" runat="server">
+                                    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" EnablePageMethods="true"></asp:ToolkitScriptManager>
+                                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- PAGE CONTENT WRAPPER -->
+        </div>
+        <!-- END PAGE CONTENT -->
+    </div>
+
+    <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+        <div class="mb-container">
+            <div class="mb-middle">
+                <div class="mb-title"><span class="fa fa-sign-out"></span>Log <strong>Out</strong> ?</div>
+                <div class="mb-content">
+                    <p>Are you sure you want to log out?</p>
+                    <p>Press No if you want to continue work. Press Yes to logout current user.</p>
+                </div>
+                <div class="mb-footer">
+                    <div class="pull-right">
+                        <a href="../Logout.aspx" class="btn btn-success btn-lg">Yes</a>
+                        <button class="btn btn-default btn-lg mb-control-close">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- START PLUGINS -->
+    <script type="text/javascript" src="../js/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- END PLUGINS -->
+
+    <!-- THIS PAGE PLUGINS -->
+    <script type='text/javascript' src='../js/plugins/icheck/icheck.min.js'></script>
+    <script type="text/javascript" src="../js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+    <!-- END PAGE PLUGINS -->
+
+    <!-- START TEMPLATE -->
+    <script type="text/javascript" src="../js/settings.js"></script>
+
+    <script type="text/javascript" src="../js/plugins.js"></script>
+    <script type="text/javascript" src="../js/actions.js"></script>
+    <!-- END TEMPLATE -->
+</body>
+</html>
