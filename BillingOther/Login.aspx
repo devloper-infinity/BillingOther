@@ -6,7 +6,7 @@
 <head runat="server">
     <title>Infinity IPS - Billing</title>
     <link rel="stylesheet" type="text/css" id="theme" href="css/theme-blue.css" />
-</head>
+</head> 
 <body>
     <div class="login-container lightmode">
         <div class="login-box animated fadeInDown">
